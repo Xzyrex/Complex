@@ -1,21 +1,15 @@
 public class Complex {
     private double real, imaginary,r,angle;
-    private String form;
 
     public Complex(double real,double imaginary){
         this.real = real;
         this.imaginary = imaginary;
         String pl = imaginary>=0?" + ":" ";
-        this.form  = real + pl + imaginary + "i";
         r = Math.sqrt(real*real + imaginary*imaginary);
         angle = Math.asin(imaginary/r);
     }
     public double getReal(){
         return real;
-    }
-    @Override
-    public String toString(){
-        return form;
     }
     Complex add(Complex val){
         return new Complex(this.real+val.real,this.imaginary + val.imaginary);
