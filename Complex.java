@@ -4,7 +4,6 @@ public class Complex {
     public Complex(double real,double imaginary){
         this.real = real;
         this.imaginary = imaginary;
-        String pl = imaginary>=0?" + ":" ";
         r = Math.sqrt(real*real + imaginary*imaginary);
         angle = Math.asin(imaginary/r);
     }
@@ -39,13 +38,16 @@ public class Complex {
         return new Complex(-this.real,-this.imaginary);
     }
     String toExpotential(){
-        return "e^" + angle + "i";
+        return String.format("%5.3f*e^%3.3f * i",r,angle*57.2958);
+                //r +"*e^" + angle*57.2958 + "i";
     }
     String toTrigonometrical(){
-        return  r + "(cos(" + angle + ") + sin(" + angle + ")*i)";
+        return  String.format("%5.3f*(cos(%3.3f) + sin(%3.3f) * i)",r,angle*57.2958,angle*57.2958);
+        //r + "(cos(" + angle*57.2958 + ") + sin(" + angle*57.2958 + ")*i)"
     }
     String toAlgebraic(){
         String pl = imaginary>=0?" + ":" ";
-        return   real + pl + imaginary + "i";
+        return String.format("%5.3f %s %5.3f",real,pl,imaginary);
+                //real + pl + imaginary + "i";
     }
 }
