@@ -139,7 +139,7 @@ public class SimpleWindow extends JFrame  {
                 break;
                 case"Тригонометрическая форма":currentMap = x->x.toTrigonometrical();
                 break;
-                case"Экспоненциальная форма":currentMap = x->x.toExpotential();
+                case"Экспоненциальная форма":currentMap = x->x.toExponential();
                 break;
             }
             answerField.setText(currentMap.toString(lastResult));
